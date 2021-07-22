@@ -3,6 +3,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
 
+
 // creer une application express
 const app = express();
 
@@ -29,8 +30,10 @@ app.use(express.static("./client/build"));
 app.get("/react", async (req, res) => {
   res.send({ msg: "Hello my friend" });
 });
+
 // exemple 2 : utiliser notre appli react sur node
 app.get("/*", async (_, res) => {
+  console.log(res);
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
